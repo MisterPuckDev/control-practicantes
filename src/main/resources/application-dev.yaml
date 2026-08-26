@@ -5,10 +5,10 @@ spring:
     password: postgres
 
   jpa:
+    open-in-view: false
+
     hibernate:
       ddl-auto: update
-
-    open-in-view: false
 
     properties:
       hibernate:
