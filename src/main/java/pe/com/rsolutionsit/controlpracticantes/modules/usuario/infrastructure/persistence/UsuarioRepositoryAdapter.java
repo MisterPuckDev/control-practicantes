@@ -62,4 +62,9 @@ public class UsuarioRepositoryAdapter implements UsuarioRepository {
             .map(mapper::toDomain)
             .toList();
     }
+
+    @Override
+    public boolean existsAny() {
+        return jpaRepository.count() > 0;
+    }
 }

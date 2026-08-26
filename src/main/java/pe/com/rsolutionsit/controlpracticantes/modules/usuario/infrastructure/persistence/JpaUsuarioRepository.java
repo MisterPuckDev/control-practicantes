@@ -12,4 +12,8 @@ public interface JpaUsuarioRepository extends JpaRepository<UsuarioEntity, Long>
     Optional<UsuarioEntity> findByUsername(String username);
 
     Optional<UsuarioEntity> findByEmail(String email);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }

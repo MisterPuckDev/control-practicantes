@@ -19,4 +19,7 @@ public interface UsuarioRepository {
     Optional<Usuario> findByEmail(String email);
 
     List<Usuario> findAll();
+
+    boolean existsAny();
+
 }
