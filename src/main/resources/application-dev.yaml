@@ -20,3 +20,8 @@ logging:
 
 server:
   port: 8080
+
+security:
+    jwt:
+        secret: "CAMBIAR_EN_PRODUCCION_SECRET_DE_256_BITS"
+        expiration: 86400000
