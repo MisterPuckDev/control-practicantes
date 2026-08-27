@@ -1,26 +1,34 @@
 package pe.com.rsolutionsit.controlpracticantes.common.exception;
 
-import org.springframework.http.HttpStatus;
-
 /**
- * Indicates that a business validation failed.
+ * Generic business validation exception.
  *
  * @author MisterPuckDev
  * @since 1.0.0
  */
 public class ValidationException extends BusinessException {
 
+    public ValidationException() {
+        super(ErrorCatalog.VALIDATION_ERROR);
+    }
+
     public ValidationException(String message) {
-        super(message);
-    }
+        super(new ErrorCode() {
 
-    @Override
-    public String getCode() {
-        return "VALIDATION_ERROR";
-    }
+            @Override
+            public String code() {
+                return ErrorCatalog.VALIDATION_ERROR.code();
+            }
 
-    @Override
-    public HttpStatus getStatus() {
-        return HttpStatus.BAD_REQUEST;
+            @Override
+            public String message() {
+                return message;
+            }
+
+            @Override
+            public org.springframework.http.HttpStatus status() {
+                return ErrorCatalog.VALIDATION_ERROR.status();
+            }
+        });
     }
 }

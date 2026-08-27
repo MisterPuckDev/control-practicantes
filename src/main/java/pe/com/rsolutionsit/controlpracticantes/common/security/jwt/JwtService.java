@@ -32,7 +32,7 @@ public class JwtService {
         this.properties = properties;
 
         this.secretKey = Keys.hmacShaKeyFor(
-            properties.secret()
+            properties.getSecret()
                 .getBytes(StandardCharsets.UTF_8));
     }
 
@@ -51,7 +51,7 @@ public class JwtService {
             .issuedAt(Date.from(now))
 
             .expiration(Date.from(
-                now.plusMillis(properties.expiration())))
+                now.plusMillis(properties.getExpiration())))
 
             .signWith(secretKey)
 
