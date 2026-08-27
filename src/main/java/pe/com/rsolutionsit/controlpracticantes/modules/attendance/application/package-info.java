@@ -5,4 +5,4 @@
  * sin contener reglas propias del dominio.
  */
 
-package pe.com.rsolutionsit.controlpracticantes.modules.asistencia.application;
+package pe.com.rsolutionsit.controlpracticantes.modules.attendance.application;

@@ -1,22 +1,35 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/control_practicantes
-    username: postgres
-    password: 123456
+    datasource:
+        url: jdbc:postgresql://localhost:5432/control_practicantes
+        username: usr_admin
+        password: CambiarPasswordAdmin123!
 
-  jpa:
-    open-in-view: false
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: validate
 
-    hibernate:
-      ddl-auto: update
+        properties:
+            hibernate:
+                default_schema: control_practicantes
+                format_sql: true
 
-    properties:
-      hibernate:
-        format_sql: true
+    flyway:
+        enabled: true
+        default-schema: control_practicantes
+        schemas:
+            - control_practicantes
+        locations: classpath:db/migration
 
 logging:
-  level:
-    org.hibernate.SQL: debug
+    level:
+        org.hibernate.SQL: debug
+        org.flywaydb: info
 
 server:
-  port: 8080
+    port: 8080
+
+security:
+    jwt:
+        secret: "e9c5b7d8a2f14b5e9f7a3c1d8e6b2a9f4c7d1e8f6a3b9c2d5e7f1a8c4b6d9e2"
+        expiration: 86400000

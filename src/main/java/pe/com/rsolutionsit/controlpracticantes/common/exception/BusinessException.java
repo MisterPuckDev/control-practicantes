@@ -1,21 +1,34 @@
 package pe.com.rsolutionsit.controlpracticantes.common.exception;
 
+import org.springframework.http.HttpStatus;
+
 /**
- * Excepción base para reglas de negocio.
+ * Base class for business exceptions.
+ *
+ * @author MisterPuckDev
+ * @since 0.2.0
  */
 public abstract class BusinessException extends RuntimeException {
 
-    protected BusinessException(String message) {
-        super(message);
+    private final ErrorCode errorCode;
+
+    protected BusinessException(ErrorCode errorCode) {
+
+        super(errorCode.message());
+
+        this.errorCode = errorCode;
+
     }
 
-    /**
-     * Código identificador del error.
-     */
-    public abstract String getCode();
+    public ErrorCode getErrorCode() {
+        return errorCode;
+    }
 
-    /**
-     * Código HTTP asociado.
-     */
-    public abstract int getStatus();
+    public String getCode() {
+        return errorCode.code();
+    }
+
+    public HttpStatus getStatus() {
+        return errorCode.status();
+    }
 }
