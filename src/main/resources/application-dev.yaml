@@ -1,12 +1,11 @@
 spring:
     datasource:
         url: jdbc:postgresql://localhost:5432/control_practicantes
-        username: postgres
-        password: tu_password
+        username: usr_admin
+        password: CambiarPasswordAdmin123!
 
     jpa:
         open-in-view: false
-
         hibernate:
             ddl-auto: validate
 
@@ -25,11 +24,12 @@ spring:
 logging:
     level:
         org.hibernate.SQL: debug
+        org.flywaydb: info
 
 server:
-  port: 8080
+    port: 8080
 
 security:
     jwt:
-        secret: "CAMBIAR_EN_PRODUCCION_SECRET_DE_256_BITS"
+        secret: "e9c5b7d8a2f14b5e9f7a3c1d8e6b2a9f4c7d1e8f6a3b9c2d5e7f1a8c4b6d9e2"
         expiration: 86400000

@@ -1,22 +1,18 @@
-package pe.com.rsolutionsit.controlpracticantes.modules.auth.application.dto;
+package pe.com.rsolutionsit.controlpracticantes.common.security.principal;
 
 import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
 
 import java.util.UUID;
 
 /**
- * Authentication response.
+ * Authenticated system user.
  *
  * @author MisterPuckDev
  * @since 0.2.0
  */
-public record LoginResponse(
+public record AuthenticatedUser(
 
-    String accessToken,
-
-    String tokenType,
-
-    UUID userId,
+    UUID id,
 
     String username,
 

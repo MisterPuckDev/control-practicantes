@@ -3,4 +3,10 @@ target/
 
 *.iml
 
+.env
+
+logs/
+
+*.log
+
 .mvn/wrapper/maven-wrapper.jar

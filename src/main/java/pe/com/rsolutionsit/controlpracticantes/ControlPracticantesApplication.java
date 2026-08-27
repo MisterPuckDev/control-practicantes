@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import pe.com.rsolutionsit.controlpracticantes.common.security.jwt.JwtProperties;
 
 @SpringBootApplication
-@EnableJpaAuditing
+@EnableJpaAuditing(auditorAwareRef = "securityAuditor")
 @EnableConfigurationProperties(JwtProperties.class)
 public class ControlPracticantesApplication {
 

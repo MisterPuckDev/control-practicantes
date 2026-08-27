@@ -6,21 +6,29 @@ import org.springframework.http.HttpStatus;
  * Base class for business exceptions.
  *
  * @author MisterPuckDev
- * @since 1.0.0
+ * @since 0.2.0
  */
 public abstract class BusinessException extends RuntimeException {
 
-    protected BusinessException(String message) {
-        super(message);
+    private final ErrorCode errorCode;
+
+    protected BusinessException(ErrorCode errorCode) {
+
+        super(errorCode.message());
+
+        this.errorCode = errorCode;
+
     }
 
-    /**
-     * Error code.
-     */
-    public abstract String getCode();
+    public ErrorCode getErrorCode() {
+        return errorCode;
+    }
 
-    /**
-     * HTTP status associated with the exception.
-     */
-    public abstract HttpStatus getStatus();
+    public String getCode() {
+        return errorCode.code();
+    }
+
+    public HttpStatus getStatus() {
+        return errorCode.status();
+    }
 }

@@ -3,23 +3,16 @@ package pe.com.rsolutionsit.controlpracticantes.common.response;
 import java.time.LocalDateTime;
 
 /**
-
- Standard successful API response.
-
-
- @param success operation status.
- @param data response payload.
- @param timestamp response creation timestamp.
- @param <T> payload type.
-
-
- @author MisterPuckDev
-
- @since 1.0.0
+ * Standard successful API response.
+ *
+ * @author MisterPuckDev
+ * @since 0.2.0
  */
 public record ApiResponse<T>(
 
     boolean success,
+
+    String message,
 
     T data,
 
@@ -27,32 +20,60 @@ public record ApiResponse<T>(
 
 ) {
 
+
     /**
-     * Creates a successful response.
-     *
-     * @param data response payload.
-     * @return successful response.
+     * Successful response with payload.
      */
     public static <T> ApiResponse<T> ok(T data) {
 
         return new ApiResponse<>(
+
             true,
+
+            "Operation completed successfully.",
+
             data,
+
             LocalDateTime.now()
+
         );
     }
 
     /**
-     * Creates an empty successful response.
-     *
-     * @return successful response without payload.
+     * Successful response with custom message.
      */
-    public static ApiResponse<Void> empty() {
+    public static <T> ApiResponse<T> ok(
+        String message,
+        T data) {
 
         return new ApiResponse<>(
+
             true,
-            null,
+
+            message,
+
+            data,
+
             LocalDateTime.now()
+
+        );
+    }
+
+    /**
+     * Empty successful response.
+     */
+    public static ApiResponse<Void> empty(String message) {
+
+        return new ApiResponse<>(
+
+            true,
+
+            message,
+
+            null,
+
+            LocalDateTime.now()
+
         );
     }
 
