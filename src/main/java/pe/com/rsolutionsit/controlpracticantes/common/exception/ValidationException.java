@@ -3,7 +3,10 @@ package pe.com.rsolutionsit.controlpracticantes.common.exception;
 import org.springframework.http.HttpStatus;
 
 /**
- * Indica que una validación de negocio no fue superada.
+ * Indicates that a business validation failed.
+ *
+ * @author MisterPuckDev
+ * @since 1.0.0
  */
 public class ValidationException extends BusinessException {
 
@@ -17,7 +20,7 @@ public class ValidationException extends BusinessException {
     }
 
     @Override
-    public int getStatus() {
-        return HttpStatus.BAD_REQUEST.value();
+    public HttpStatus getStatus() {
+        return HttpStatus.BAD_REQUEST;
     }
 }

@@ -3,7 +3,10 @@ package pe.com.rsolutionsit.controlpracticantes.common.exception;
 import org.springframework.http.HttpStatus;
 
 /**
- * Indica que un recurso solicitado no existe.
+ * Indicates that a requested resource does not exist.
+ *
+ * @author MisterPuckDev
+ * @since 1.0.0
  */
 public class ResourceNotFoundException extends BusinessException {
 
@@ -17,7 +20,7 @@ public class ResourceNotFoundException extends BusinessException {
     }
 
     @Override
-    public int getStatus() {
-        return HttpStatus.NOT_FOUND.value();
+    public HttpStatus getStatus() {
+        return HttpStatus.NOT_FOUND;
     }
 }

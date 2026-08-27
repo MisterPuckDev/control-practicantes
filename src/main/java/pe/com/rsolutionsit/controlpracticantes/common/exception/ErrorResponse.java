@@ -3,18 +3,24 @@ package pe.com.rsolutionsit.controlpracticantes.common.exception;
 import java.time.LocalDateTime;
 
 /**
- * Representa una respuesta estándar ante errores.
+ * Standard API error response.
+ *
+ * @author MisterPuckDev
+ * @since 1.0.0
  */
 public record ErrorResponse(
 
-        String code,
+    String code,
 
-        String message,
+    String message,
 
-        int status,
+    int status,
 
-        String path,
+    String path,
 
-        LocalDateTime timestamp
+    String traceId,
 
-) {}
+    LocalDateTime timestamp
+
+) {
+}
