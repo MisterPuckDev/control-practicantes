@@ -1,7 +1,5 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.user.domain.model;
 
-import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
-
 import java.util.UUID;
 
 /**

@@ -2,7 +2,6 @@ package pe.com.rsolutionsit.controlpracticantes.modules.user.infrastructure.pers
 
 import jakarta.persistence.*;
 import pe.com.rsolutionsit.controlpracticantes.common.persistence.BaseEntity;
-import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
 
 /**
  * Entidad persistente del usuario.

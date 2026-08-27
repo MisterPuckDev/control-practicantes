@@ -2,7 +2,6 @@ package pe.com.rsolutionsit.controlpracticantes.modules.user.application.usecase
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
 import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.model.Usuario;
 import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.repository.UsuarioRepository;
 

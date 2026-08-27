@@ -1,7 +1,5 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.auth.application.dto;
 
-import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
-
 /**
  * Respuesta del proceso de autenticación.
  */

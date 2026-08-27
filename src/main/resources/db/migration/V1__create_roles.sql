@@ -1,15 +1,22 @@
-CREATE TABLE control_practicantes.roles(
+CREATE TABLE roles
+(
 
-                                           id UUID PRIMARY KEY,
+    id         UUID PRIMARY KEY,
 
-                                           code VARCHAR(30) UNIQUE NOT NULL,
+    code       VARCHAR(30)  NOT NULL UNIQUE,
 
-                                           name VARCHAR(100) NOT NULL,
+    name       VARCHAR(100) NOT NULL,
 
-                                           created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-                                           updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-                                           deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+
+    created_by UUID,
+
+    updated_by UUID,
+
+    deleted_by UUID
 
 );
