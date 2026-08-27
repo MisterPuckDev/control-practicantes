@@ -2,43 +2,38 @@ package pe.com.rsolutionsit.controlpracticantes.modules.user.application.usecase
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.model.Usuario;
-import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.repository.UsuarioRepository;
+import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
+import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.model.User;
+import pe.com.rsolutionsit.controlpracticantes.modules.user.domain.repository.UserRepository;
 
 /**
- * Caso de uso encargado de crear un usuario.
- * <p>
- * Centraliza la creación y el cifrado de contraseñas.
+ * Creates system users.
  *
  * @author MisterPuckDev
- * @since 1.0.0
+ * @since 0.2.0
  */
-
 @Service
-public class CrearUsuarioUseCase {
+public class CreateUserUseCase {
 
-    private final UsuarioRepository repository;
+    private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
 
-    public CrearUsuarioUseCase(
-        UsuarioRepository repository,
+    public CreateUserUseCase(
+        UserRepository repository,
         PasswordEncoder passwordEncoder) {
 
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
+
     }
 
-    /**
-     * Crea un usuario administrador.
-     */
-
-    public Usuario crearAdministrador(
+    public User createAdministrator(
         String username,
         String fullName,
         String email,
         String password) {
 
-        Usuario usuario = new Usuario(
+        User user = new User(
             null,
             username,
             fullName,
@@ -48,6 +43,7 @@ public class CrearUsuarioUseCase {
             true
         );
 
-        return repository.save(usuario);
+        return repository.save(user);
+
     }
 }

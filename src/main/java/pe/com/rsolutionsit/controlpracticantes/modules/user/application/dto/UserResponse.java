@@ -1,15 +1,16 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.user.application.dto;
 
+import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
+
 import java.util.UUID;
 
 /**
- * DTO utilizado para exponer información pública del usuario.
+ * Public user response.
  *
  * @author MisterPuckDev
- * @since 1.0.0
+ * @since 0.2.0
  */
-
-public record UsuarioResponse(
+public record UserResponse(
 
     UUID id,
 

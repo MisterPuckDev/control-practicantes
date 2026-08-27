@@ -1,18 +1,19 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.user.domain.model;
 
+import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.RoleCode;
+
 import java.util.UUID;
 
 /**
- * Representa el usuario del dominio.
- *
- * Esta clase contiene únicamente información de negocio y
- * no depende de JPA ni de Spring Security.
+ * Domain representation of a system user.
+ * <p>
+ * This model contains only business information and remains
+ * independent from Spring and JPA.
  *
  * @author MisterPuckDev
- * @since 1.0.0
+ * @since 0.2.0
  */
-
-public record Usuario(
+public record User(
 
     UUID id,
 
