@@ -1,6 +1,6 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.auth.exception;
 
-import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.AuthErrors;
 
 /**
  * Invalid JWT token.
@@ -11,6 +11,6 @@ import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
 public class InvalidTokenException extends AuthException {
 
     public InvalidTokenException() {
-        super(ErrorCatalog.AUTH_INVALID_TOKEN);
+        super(AuthErrors.INVALID_TOKEN);
     }
 }

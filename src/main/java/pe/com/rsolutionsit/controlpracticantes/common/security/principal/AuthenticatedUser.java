@@ -5,10 +5,17 @@ import pe.com.rsolutionsit.controlpracticantes.common.security.authorization.Rol
 import java.util.UUID;
 
 /**
- * Authenticated system user.
+ * Immutable authenticated user used by the JWT module.
  *
- * @author MisterPuckDev
- * @since 0.2.0
+ * <p>This record represents the minimum identity information required to
+ * generate security tokens without coupling the JWT layer to Spring Security.
+ *
+ * @param id       authenticated user identifier.
+ * @param username authenticated username.
+ * @param fullName user full name.
+ * @param roleCode assigned role.
+ * @author Raul Sosa
+ * @since 1.0.0
  */
 public record AuthenticatedUser(
 

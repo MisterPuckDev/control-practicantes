@@ -11,25 +11,35 @@ import pe.com.rsolutionsit.controlpracticantes.modules.auth.application.dto.Logi
 /**
  * Performs user authentication.
  *
- * @author MisterPuckDev
- * @since 0.2.0
+ * @author Raul Sosa
+ * @since 1.0.0
  */
 @Service
 public class LoginUseCase {
 
     private final AuthenticationManager authenticationManager;
-
     private final JwtService jwtService;
 
+    /**
+     * Creates the login use case.
+     *
+     * @param authenticationManager authentication manager.
+     * @param jwtService            JWT service.
+     */
     public LoginUseCase(
         AuthenticationManager authenticationManager,
         JwtService jwtService) {
 
         this.authenticationManager = authenticationManager;
-
         this.jwtService = jwtService;
     }
 
+    /**
+     * Authenticates the user.
+     *
+     * @param request login request.
+     * @return authentication response.
+     */
     public LoginResponse execute(LoginRequest request) {
 
         var authentication = authenticationManager.authenticate(
@@ -38,20 +48,22 @@ public class LoginUseCase {
 
                 request.username(),
 
-                request.password()
-
-            )
-
-        );
+                request.password()));
 
         UserPrincipal principal =
             (UserPrincipal) authentication.getPrincipal();
 
-        String token = jwtService.generateToken(principal);
+        String accessToken =
+            jwtService.generateAccessToken(principal);
+
+        String refreshToken =
+            jwtService.generateRefreshToken(principal);
 
         return new LoginResponse(
 
-            token,
+            accessToken,
+
+            refreshToken,
 
             "Bearer",
 
@@ -61,8 +73,7 @@ public class LoginUseCase {
 
             principal.getFullName(),
 
-            principal.getDomainUser().roleCode()
+            principal.getDomainUser().roleCode());
 
-        );
     }
 }

@@ -1,6 +1,6 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.auth.exception;
 
-import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.AuthErrors;
 
 /**
  * Thrown when credentials are invalid.
@@ -11,6 +11,6 @@ import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
 public class InvalidCredentialsException extends AuthException {
 
     public InvalidCredentialsException() {
-        super(ErrorCatalog.AUTH_INVALID_CREDENTIALS);
+        super(AuthErrors.INVALID_CREDENTIALS);
     }
 }

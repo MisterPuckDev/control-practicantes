@@ -3,19 +3,42 @@ spring:
         url: ${DB_URL}
         username: ${DB_USERNAME}
         password: ${DB_PASSWORD}
-
     jpa:
         open-in-view: false
         hibernate:
             ddl-auto: validate
-
     flyway:
         enabled: true
 
 server:
     port: ${SERVER_PORT:8080}
 
+management:
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - health
+                    - info
+    endpoint:
+        health:
+            show-details: never
+
+logging:
+    level:
+        root: INFO
+        pe.com.rsolutionsit.controlpracticantes: INFO
+        org.springframework.security: WARN
+        org.hibernate.SQL: WARN
+
 security:
     jwt:
         secret: ${JWT_SECRET}
         expiration: ${JWT_EXPIRATION}
+        refresh-expiration: ${JWT_REFRESH_EXPIRATION}
+        issuer: control-practicantes
+        audience: control-practicantes-api
+    cors:
+        allowed-origins:
+            - https://app.company.com
+            - https://admin.company.com

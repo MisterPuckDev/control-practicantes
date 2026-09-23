@@ -7,12 +7,24 @@ import java.util.UUID;
 /**
  * Authentication response.
  *
- * @author MisterPuckDev
- * @since 0.2.0
+ * <p>Returns both access and refresh tokens together with the authenticated
+ * user's public information.
+ *
+ * @param accessToken  access JWT.
+ * @param refreshToken refresh JWT.
+ * @param tokenType    token scheme.
+ * @param userId       authenticated user identifier.
+ * @param username     authenticated username.
+ * @param fullName     authenticated full name.
+ * @param roleCode     assigned role.
+ * @author Raul Sosa
+ * @since 1.0.0
  */
 public record LoginResponse(
 
     String accessToken,
+
+    String refreshToken,
 
     String tokenType,
 
@@ -23,6 +35,5 @@ public record LoginResponse(
     String fullName,
 
     RoleCode roleCode
-
 ) {
 }

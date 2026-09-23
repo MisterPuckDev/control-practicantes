@@ -1,6 +1,6 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.user.exception;
 
-import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.UserErrors;
 
 /**
  * User not found.
@@ -11,6 +11,6 @@ import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
 public class UserNotFoundException extends UserException {
 
     public UserNotFoundException() {
-        super(ErrorCatalog.USER_NOT_FOUND);
+        super(UserErrors.USER_NOT_FOUND);
     }
 }

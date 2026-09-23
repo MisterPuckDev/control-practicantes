@@ -1,6 +1,6 @@
 package pe.com.rsolutionsit.controlpracticantes.modules.auth.exception;
 
-import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.AuthErrors;
 
 /**
  * Expired JWT token.
@@ -11,6 +11,6 @@ import pe.com.rsolutionsit.controlpracticantes.common.exception.ErrorCatalog;
 public class TokenExpiredException extends AuthException {
 
     public TokenExpiredException() {
-        super(ErrorCatalog.AUTH_TOKEN_EXPIRED);
+        super(AuthErrors.TOKEN_EXPIRED);
     }
 }

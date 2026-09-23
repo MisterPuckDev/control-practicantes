@@ -7,26 +7,42 @@ import java.util.Objects;
 /**
  * Immutable phone number.
  *
- * @author MisterPuckDev
+ * @param value validated phone number.
+ * @author Raul Sosa
  * @since 1.0.0
  */
 public record PhoneNumber(String value) {
 
+    /**
+     * Phone validation pattern.
+     */
+    private static final String PHONE_PATTERN =
+        "^\+?[0-9]{9,15}$";
+
+    /**
+     * Creates a validated phone number.
+     *
+     * @param value raw phone number.
+     */
     public PhoneNumber {
 
         Objects.requireNonNull(value);
 
         value = value.trim();
 
-        if (!value.matches("^\\+?[0-9]{9,15}$")) {
+        if (!value.matches(PHONE_PATTERN)) {
 
             throw new ValidationException(
                 "Invalid phone number.");
+
         }
     }
 
     @Override
     public String toString() {
+
         return value;
+
     }
+
 }

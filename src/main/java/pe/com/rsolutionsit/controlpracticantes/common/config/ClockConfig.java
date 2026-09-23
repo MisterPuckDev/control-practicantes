@@ -6,18 +6,25 @@ import org.springframework.context.annotation.Configuration;
 import java.time.Clock;
 
 /**
- * System clock configuration.
- * <p>
- * Centralizes time access for testing purposes.
+ * Registers the application's shared clock.
  *
- * @author MisterPuckDev
+ * <p>Centralizing time access makes the application deterministic during
+ * testing and avoids direct dependencies on system time.
+ *
+ * @author Raul Sosa
  * @since 1.0.0
  */
 @Configuration
 public class ClockConfig {
 
+    /**
+     * Returns the system clock used across the application.
+     *
+     * @return shared system clock.
+     */
     @Bean
     public Clock systemClock() {
+
         return Clock.systemDefaultZone();
     }
 }

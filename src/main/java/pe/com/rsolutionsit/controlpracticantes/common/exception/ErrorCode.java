@@ -5,24 +5,32 @@ import org.springframework.http.HttpStatus;
 /**
  * Contract implemented by every application error code.
  *
- * @author MisterPuckDev
- * @since 0.2.0
+ * <p>Error codes are stable identifiers that should never change once they
+ * become part of the public API.
+ *
+ * @author Raul Sosa
+ * @since 1.0.0
  */
 public interface ErrorCode {
 
     /**
-     * Stable application error code.
+     * Returns the stable application error code.
+     *
+     * @return application error code.
      */
     String code();
 
     /**
-     * Default error message.
+     * Returns the default error message.
+     *
+     * @return default message.
      */
     String message();
 
     /**
-     * Associated HTTP status.
+     * Returns the associated HTTP status.
+     *
+     * @return HTTP status.
      */
     HttpStatus status();
-
 }

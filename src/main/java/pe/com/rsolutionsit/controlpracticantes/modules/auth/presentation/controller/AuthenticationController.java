@@ -16,7 +16,7 @@ import pe.com.rsolutionsit.controlpracticantes.modules.auth.application.usecase.
  * @since 0.2.0
  */
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/v1/auth")
 @Tag(name = "Authentication")
 public class AuthenticationController {
 

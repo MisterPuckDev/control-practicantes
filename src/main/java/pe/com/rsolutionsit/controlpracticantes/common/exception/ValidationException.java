@@ -1,34 +1,38 @@
 package pe.com.rsolutionsit.controlpracticantes.common.exception;
 
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.CommonErrors;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.model.DynamicErrorCode;
+
 /**
- * Generic business validation exception.
+ * Generic validation exception.
  *
- * @author MisterPuckDev
+ * @author Raul Sosa
  * @since 1.0.0
  */
 public class ValidationException extends BusinessException {
 
+    /**
+     * Creates a validation exception using the default message.
+     */
     public ValidationException() {
-        super(ErrorCatalog.VALIDATION_ERROR);
+
+        super(CommonErrors.VALIDATION_ERROR);
     }
 
+    /**
+     * Creates a validation exception using a custom message.
+     *
+     * @param message custom validation message.
+     */
     public ValidationException(String message) {
-        super(new ErrorCode() {
 
-            @Override
-            public String code() {
-                return ErrorCatalog.VALIDATION_ERROR.code();
-            }
+        super(new DynamicErrorCode(
 
-            @Override
-            public String message() {
-                return message;
-            }
+            CommonErrors.VALIDATION_ERROR.code(),
 
-            @Override
-            public org.springframework.http.HttpStatus status() {
-                return ErrorCatalog.VALIDATION_ERROR.status();
-            }
-        });
+            message,
+
+            CommonErrors.VALIDATION_ERROR.status()));
+
     }
 }
