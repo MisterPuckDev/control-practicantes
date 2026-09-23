@@ -1,0 +1,43 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/control_practicantes
+        username: usr_admin
+        password: CambiarPasswordAdmin123!
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: validate
+        properties:
+            hibernate:
+                default_schema: control_practicantes
+                format_sql: true
+    flyway:
+        enabled: true
+        default-schema: control_practicantes
+        schemas:
+            - control_practicantes
+        locations:
+            - classpath:db/migration
+
+server:
+    port: 8080
+
+management:
+    endpoint:
+        health:
+            show-details: always
+
+logging:
+    level:
+        pe.com.rsolutionsit.controlpracticantes: DEBUG
+        org.hibernate.SQL: DEBUG
+        org.hibernate.orm.jdbc.bind: TRACE
+        org.flywaydb: INFO
+
+security:
+    jwt:
+        secret: "e9c5b7d8a2f14b5e9f7a3c1d8e6b2a9f4c7d1e8f6a3b9c2d5e7f1a8c4b6d9e2"
+    cors:
+        allowed-origins:
+            - http://localhost:4200
+            - http://localhost:5173

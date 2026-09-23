@@ -3,4 +3,12 @@ target/
 
 *.iml
 
+.env
+
+logs/
+
+*.log
+
 .mvn/wrapper/maven-wrapper.jar
+
+src/main/resources/application-local.yml

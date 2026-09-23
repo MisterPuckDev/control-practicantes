@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/control_practicantes
+        username: your_username
+        password: your_password
+
+security:
+    jwt:
+        secret: "replace-with-a-64-character-secret"
+    cors:
+        allowed-origins:
+            - http://localhost:4200
+            - http://localhost:5173

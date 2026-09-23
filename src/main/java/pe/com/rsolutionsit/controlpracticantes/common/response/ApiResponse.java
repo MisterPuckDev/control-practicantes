@@ -3,43 +3,78 @@ package pe.com.rsolutionsit.controlpracticantes.common.response;
 import java.time.LocalDateTime;
 
 /**
- * Respuesta estándar para operaciones exitosas de la API.
- *
- * @param <T> tipo del dato devuelto.
+ * Standard successful API response.
  *
  * @author MisterPuckDev
- * @since 1.0.0
+ * @since 0.2.0
  */
 public record ApiResponse<T>(
-        boolean success,
-        T data,
-        LocalDateTime timestamp
+
+    boolean success,
+
+    String message,
+
+    T data,
+
+    LocalDateTime timestamp
+
 ) {
 
+
     /**
-     * Crea una respuesta exitosa con datos.
-     *
-     * @param data información a devolver.
-     * @return respuesta exitosa.
+     * Successful response with payload.
      */
     public static <T> ApiResponse<T> ok(T data) {
+
         return new ApiResponse<>(
-                true,
-                data,
-                LocalDateTime.now()
+
+            true,
+
+            "Operation completed successfully.",
+
+            data,
+
+            LocalDateTime.now()
+
         );
     }
 
     /**
-     * Crea una respuesta exitosa sin contenido.
-     *
-     * @return respuesta exitosa vacía.
+     * Successful response with custom message.
      */
-    public static ApiResponse<Void> empty() {
+    public static <T> ApiResponse<T> ok(
+        String message,
+        T data) {
+
         return new ApiResponse<>(
-                true,
-                null,
-                LocalDateTime.now()
+
+            true,
+
+            message,
+
+            data,
+
+            LocalDateTime.now()
+
         );
     }
+
+    /**
+     * Empty successful response.
+     */
+    public static ApiResponse<Void> empty(String message) {
+
+        return new ApiResponse<>(
+
+            true,
+
+            message,
+
+            null,
+
+            LocalDateTime.now()
+
+        );
+    }
+
 }

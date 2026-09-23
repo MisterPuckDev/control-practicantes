@@ -1,6 +1,45 @@
 spring:
-  application:
-    name: control-practicantes
+    application:
+        name: intern-hours-control-system
+    profiles:
+        active: local
 
-  profiles:
-    active: dev
+# Propiedad personalizada
+application:
+    database:
+        schema: control_practicantes
+
+server:
+    servlet:
+        context-path: /api
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - health
+                    - info
+                    - metrics
+                    - prometheus
+    endpoint:
+        health:
+            show-details: never
+    metrics:
+        tags:
+            application: intern-hours-control-system
+
+logging:
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level traceId=%X{traceId:-N/A} %logger{36} - %msg%n"
+
+security:
+    rate-limit:
+        capacity: 60
+        refill-tokens: 60
+        refill-duration: 1m
+    jwt:
+        expiration: 900000
+        refresh-expiration: 604800000
+        issuer: control-practicantes
+        audience: control-practicantes-api

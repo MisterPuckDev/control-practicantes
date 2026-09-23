@@ -1,23 +1,38 @@
 package pe.com.rsolutionsit.controlpracticantes.common.exception;
 
-import org.springframework.http.HttpStatus;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.catalog.CommonErrors;
+import pe.com.rsolutionsit.controlpracticantes.common.exception.model.DynamicErrorCode;
 
 /**
- * Indica que una validación de negocio no fue superada.
+ * Generic validation exception.
+ *
+ * @author Raul Sosa
+ * @since 1.0.0
  */
 public class ValidationException extends BusinessException {
 
+    /**
+     * Creates a validation exception using the default message.
+     */
+    public ValidationException() {
+
+        super(CommonErrors.VALIDATION_ERROR);
+    }
+
+    /**
+     * Creates a validation exception using a custom message.
+     *
+     * @param message custom validation message.
+     */
     public ValidationException(String message) {
-        super(message);
-    }
 
-    @Override
-    public String getCode() {
-        return "VALIDATION_ERROR";
-    }
+        super(new DynamicErrorCode(
 
-    @Override
-    public int getStatus() {
-        return HttpStatus.BAD_REQUEST.value();
+            CommonErrors.VALIDATION_ERROR.code(),
+
+            message,
+
+            CommonErrors.VALIDATION_ERROR.status()));
+
     }
 }
