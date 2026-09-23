@@ -19,7 +19,7 @@ public record PasswordHash(String value) {
      * BCrypt hash pattern.
      */
     private static final String BCRYPT_PATTERN =
-        "^\$2[aby]\$.{56}$";
+        "^\\$2[aby]\\$.{56}$";
 
     /**
      * Creates a validated password hash.

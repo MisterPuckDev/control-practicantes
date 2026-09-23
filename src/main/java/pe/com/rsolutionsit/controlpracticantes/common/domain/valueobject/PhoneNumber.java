@@ -17,7 +17,7 @@ public record PhoneNumber(String value) {
      * Phone validation pattern.
      */
     private static final String PHONE_PATTERN =
-        "^\+?[0-9]{9,15}$";
+        "^\\+?[0-9]{9,15}$";
 
     /**
      * Creates a validated phone number.
